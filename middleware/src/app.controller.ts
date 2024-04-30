@@ -42,6 +42,7 @@ export class AppController {
     if (!file) {
       throw new Error('File is not provided.');
     }
+    console.log("check");
     // Call the Python API service to send the PDF file
     // The file.buffer contains the file data in memory
     const response = await this.pythonApiService.sendPdfToPython(file.buffer, file.originalname);

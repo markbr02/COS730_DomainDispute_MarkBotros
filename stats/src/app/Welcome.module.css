@@ -1,0 +1,82 @@
+/* Welcome.module.css */
+.parent-container {
+    position: fixed; /* or 'absolute' or 'fixed' depending on your layout needs */
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    background: #f0f2f5;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+  }
+  
+  .button {
+    background-color: #4d90fe;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #3b78d8;
+  }
+  
+  .button:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  
+  .globe {
+    border: 2px solid #242820;
+    border-radius: 50%;
+    height: 200px; /* Reduced size */
+    position: fixed;
+    bottom: -20px; /* Adjusted position */
+    right: -20px; /* Adjusted position */
+    overflow: hidden;
+    transform: rotate(30deg) scale(1.5); /* Adjusted scale and rotation */
+    width: 180px; /* Reduced size */
+  }
+  
+  
+  
+  .globe svg {
+    animation: rotation 5s linear infinite;
+  }
+  
+  .globe path {
+    stroke: #242820;
+  }
+  
+  @keyframes rotation {
+    from {
+        transform: translateX(0);
+      }
+      
+      from {
+        transform: translateX(-50%);
+      }
+  }
+  
+  
+  .description {
+    color: #000000;
+    text-align: center;
+    max-width: 600px; /* Adjust as necessary */
+    margin: 20px auto;
+    font-size: 1rem;
+    line-height: 1.6;
+  }

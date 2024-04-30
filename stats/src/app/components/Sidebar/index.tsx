@@ -2,6 +2,7 @@
 'use client';
 import React from 'react';
 import './Sidebar.css';
+import Link from 'next/link';
 
 const Sidebar = ({ onSelectStatistic, selectedStatistic }) => {
   return (
@@ -34,12 +35,13 @@ const Sidebar = ({ onSelectStatistic, selectedStatistic }) => {
         </button>
         {/* More buttons can be added here */}
       </div>
-      <button
-        className="home-btn"
-        onClick={() => onSelectStatistic('../../page.tsx')} // Replace 'home' with the actual route or function to navigate home
-      >
+      <Link href="/">
+        <button
+        className="home-btn">
         Home
-      </button>
+        </button>
+      </Link>
+      
     </div>
   );
 };

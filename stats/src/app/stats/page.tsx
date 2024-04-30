@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import AdjudicatorsStats from '../components/Stats/AdjudicatorsStats';
-import '../pages/Dashboard.css'; // Ensure the CSS is imported if not globally available
+import './Dashboard.css'; // Ensure the CSS is imported if not globally available
 import CasePerTypeStats from '../components/Stats/CasePerTypeStats';
 import CasePerYearStats from '../components/Stats/CasePerYearStats';
 import CasesPerTypePerYear from '../components/Stats/CasesPerTypePerYear';
