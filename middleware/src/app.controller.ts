@@ -1,17 +1,13 @@
-import { Controller, Get, Post, Body, UseInterceptors, UploadedFile } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Post, Body, UseInterceptors, UploadedFile, Req, UploadedFiles } from '@nestjs/common';
 import { PythonApiService } from './python.service';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { FileFieldsInterceptor, FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { DomainDisputeService } from './domainDisputeConnecter.service';
+import { EmailService } from './email.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService, private readonly pythonApiService: PythonApiService, private readonly domainDisputeService: DomainDisputeService ) {}
+  constructor(private readonly emailService: EmailService, private readonly pythonApiService: PythonApiService, private readonly domainDisputeService: DomainDisputeService) { }
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
 
   @Get('adjudicators')
   adjudicators(): any {
@@ -48,5 +44,41 @@ export class AppController {
     const response = await this.pythonApiService.sendPdfToPython(file.buffer, file.originalname);
     // Return the response from the Python service
     return response;
+  }
+
+  @Post('file-dispute')
+  @UseInterceptors(FilesInterceptor('files', 10)) // Adjust '10' based on your needs
+  async handleSubmit(@UploadedFiles() files: Express.Multer.File[], @Body() formData: any) {
+    const filesInfo = files?.map(file => file.originalname).join(', ') || 'No files';
+
+    const emailBody = `
+<html>
+<head>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    h1 { color: #333; }
+    p { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>New Domain Dispute Submission</h1>
+  <p><strong>Domains:</strong> ${formData.domains}</p>
+  <p><strong>Complainant Name:</strong> ${formData.complainantName}</p>
+  <p><strong>Complainant Contact:</strong> ${formData.complainantContact}</p>
+  <p><strong>Registrant Name:</strong> ${formData.registrantName}</p>
+  <p><strong>Registrant Type:</strong> ${formData.registrantType}</p>
+  <p><strong>Dispute Type:</strong> ${formData.disputeType}</p>
+  <p><strong>Evidence:</strong> ${formData.evidence}</p>
+  <p><strong>Description:</strong> ${formData.description}</p>
+  <p><strong>Attached Files:</strong> ${filesInfo}</p>
+</body>
+</html>
+`;
+
+    // Send this HTML as part of an email
+    await this.emailService.sendMail('u21448109@tuks.co.za', 'New Form Submission', emailBody, files);
+
+
+    return { message: 'Form processed successfully' };
   }
 }
