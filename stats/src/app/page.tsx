@@ -17,7 +17,7 @@ export default function Page() {
       <Link href="/stats">
         <button className={styles.button}>Stats</button>
       </Link>
-      <Link href="/file-dispute">
+      <Link href="/auto_dispute">
         <button className={styles.button}>File a Dispute</button>
       </Link>
       <Link href="/summarize-paper">
