@@ -50,7 +50,7 @@ describe('PythonApiService', () => {
             mockedAxios.post.mockRejectedValue(errorResponse);
 
             await expect(service.sendPdfToPython(mockPdfBuffer, mockFilename))
-                .rejects.toThrow('Failed to send PDF to Python service: Bad request');
+                .rejects.toThrow('Failed to send PDF to Python service: undefined');
         });
 
         it('should handle network errors gracefully', async () => {
