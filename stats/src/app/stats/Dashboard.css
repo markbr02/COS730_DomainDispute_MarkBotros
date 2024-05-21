@@ -1,0 +1,35 @@
+/* Dashboard.css */
+.dashboard {
+    display: flex;
+    height: 100vh;
+}
+
+.content {
+    width: 150%; /* Updated to balance with the new sidebar width */
+    padding: 1rem; /* 16px */
+    overflow-y: auto; /* Allow scrolling */
+    background: #F0F2F5; /* Soft background for content */
+    color: #2A2C2E; /* Dark grey text that's easy to read */
+}
+
+.chart-container {
+    padding: 1rem;
+    margin: 1rem 0;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative; /* Allows the sidebar to flow with content */
+    }
+
+    .content {
+        width: 100%;
+        padding: 1rem;
+    }
+}

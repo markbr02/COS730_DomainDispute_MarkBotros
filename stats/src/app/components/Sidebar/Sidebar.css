@@ -1,0 +1,54 @@
+/* Sidebar.css */
+.sidebar {
+    background: #2A2C2E; /* Dark grey that's easier on the eyes */
+    color: #CDD1D4; /* Lighter text for better contrast */
+    width: 60%; /* Reduce width to 1/4th */
+    padding: 1rem; /* 16px */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Adjust spacing */
+}
+
+.sidebar-header {
+    margin-bottom: 1rem; /* 16px */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4d90fe; /* Highlight color for header text */
+    width: 150%;
+}
+
+.sidebar-btn {
+    background: #37393B; /* Subtle difference from sidebar background */
+    color: inherit; /* Inherits lighter text color */
+    border: none;
+    padding: 10px;
+    margin-bottom: 0.5rem; /* 8px */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: left;
+    width: 150%;
+}
+
+.sidebar-btn:hover, .sidebar-btn.active {
+    background: #4d90fe; /* Brighter color for interaction */
+    color: #19191b; /* Dark text for contrast */
+    transform: none; /* No translation on hover */
+}
+
+.home-btn {
+    background: #4d90fe; /* Use highlight color */
+    color: #19191b;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    width: 150%;
+}
+
+.home-btn:hover {
+    background-color: #3671d8; /* Slightly darker on hover */
+}

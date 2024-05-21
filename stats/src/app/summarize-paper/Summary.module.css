@@ -1,0 +1,98 @@
+/* Base styles */
+.body {
+    font-family: 'Roboto', sans-serif;
+    color: #4a4a4a;
+    background-color: #f7f9fc;
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  /* Dashboard styles */
+  .dashboard {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 25%;
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Upload form styles */
+  .upload-form {
+    margin-bottom: 2rem;
+  }
+  
+  .file-input,
+  .upload-button {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .upload-button {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Content area styles */
+  .content {
+    width: 75%;
+    padding: 2rem;
+    background-color: #ffffff;
+  }
+  
+  /* Table and summary block styles */
+  .keyword-table,
+  .summary-block {
+    background-color: #ffffff;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .keyword-table th,
+  .keyword-table td {
+    padding: 0.5rem;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .keyword-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .summary-block {
+    padding: 1rem;
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+    }
+  
+    .sidebar,
+    .content {
+      width: 100%;
+      padding: 1rem;
+    }
+  
+    .file-input,
+    .upload-button {
+      width: auto;
+    }
+  }
+  
