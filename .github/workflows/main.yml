@@ -12,7 +12,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -34,3 +33,14 @@ jobs:
     - name: Run tests
       working-directory: ./middleware
       run: npm test
+
+    # Conditional step after tests
+    - name: Notify success
+      if: success()
+      run: echo "Tests passed successfully!"
+      # You can also use other actions for Slack notifications, etc.
+
+    - name: Notify failure
+      if: failure()
+      run: echo "Tests failed!"
+      # Similar, can notify through various channels or take other actions
