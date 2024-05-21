@@ -39,6 +39,7 @@ export class EmailService {
     };
   
     try {
+      console.log('Sending...');
       const result = await transporter.sendMail(mailOptions);
       console.log('Email sent successfully', result);
     } catch (error) {
