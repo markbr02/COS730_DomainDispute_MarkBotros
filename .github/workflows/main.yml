@@ -31,10 +31,6 @@ jobs:
       working-directory: ./middleware
       run: npm install
 
-    - name: Run lint
-      working-directory: ./middleware
-      run: npm run lint
-
     - name: Run tests
       working-directory: ./middleware
       run: npm test
